@@ -4,7 +4,7 @@ class Vehicle
   define_method(:initialize) do |make, model, year|
     @make = make
     @model = model
-    @year = year
+    @year = year.to_i
     @id = @@vehicles.length() + 1
   end
 

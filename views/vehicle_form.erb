@@ -1,6 +1,6 @@
 <h1>Fill out the information on your vehicle</h1>
 
-<form id="vehicles" action="/vehicles">
+<form id="vehicles" action="/vehicles" method="post">
   <div class="form-group">
     <label id="make">What is the make?</label>
     <input id="make" placeholder="Enter your make (ford)" class="form-control" type="text" name="make">
@@ -13,5 +13,5 @@
     <label id="year">What is the year of the car?</label>
     <input id="year" placeholder="Enter year of vehicle (2010)" class="form-control" type="number" name="year">
   </div>
-  <button id="add_vehicle" class='btn-primary'>Add it!</button>
+  <button type="submit" id="add_vehicle" class='btn-primary'>Add it!</button>
 </form>
