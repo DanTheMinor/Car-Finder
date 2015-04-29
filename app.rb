@@ -20,7 +20,12 @@ post('/vehicles') do
   make = params.fetch("make")
   model = params.fetch("model")
   year = params.fetch("year")
-  vehicle = Vehicle.new(make, model, year)
-  vehicle.save()
+  @vehicle = Vehicle.new(make, model, year)
+  @vehicle.save()
   erb(:success)
+end
+
+get('/vehicles/:id') do
+  @vehicle = Vehicle.find(params.fetch("id"))
+  erb(:vehicle)
 end

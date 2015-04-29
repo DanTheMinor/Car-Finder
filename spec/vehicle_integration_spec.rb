@@ -5,9 +5,18 @@ set(:show_exception, false)
 require 'pry'
 
 describe('The vehicle registration path', {:type => :feature}) do
-  it('Click link to go to list or add to list, click link to return details about list, fill form to add to list') do
+  it('links to vehicle list or add vehicle') do
     visit('/')
     click_link('See Vehicle List')
     expect(page).to have_content('Vehicles')
+  end
+
+  it('submits form, shows success page') do
+    visit('/vehicles/new')
+    fill_in('make', :with => 'ford')
+    fill_in('model', :with => 'escort')
+    fill_in('year', :with => '2010')
+    click_button('add_vehicle')
+    expect(page).to have_content('Successly added escort')
   end
 end
