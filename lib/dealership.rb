@@ -22,11 +22,23 @@ class Dealership
     @@dealerships.push(self)
   end
 
+  define_method(:add_vehicle) do |vehicle|
+    @cars.push(vehicle)
+  end
+
   define_singleton_method(:all) do
     @@dealerships
   end
 
   define_singleton_method(:clear) do
     @@dealerships = []
+  end
+
+  define_singleton_method(:find) do |identification|
+    found_dealership = nil
+    @@dealerships.each do |dealership|
+      found_dealership = dealership if dealership.id() == identification
+    end
+    found_dealership
   end
 end
