@@ -59,4 +59,21 @@ describe(Vehicle) do
     end
   end
 
+  describe("#worth_buying?") do
+    it("returns false if the car is not American made and less than 15 years old") do
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+      expect(test_vehicle.worth_buying?()).to(eq(false))
+    end
+  end
+
+  describe(".find") do
+    it("returns the id of the vehicle") do
+      test_car = Vehicle.new("Toyota", "Prius", 2000)
+      test_car.save()
+      test_car2 = Vehicle.new("Toyota", "Corolla", 1999)
+      test_car2.save()
+      expect(Vehicle.find(test_car.id())).to(eq(test_car))
+
+    end
+  end
 end

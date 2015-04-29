@@ -5,6 +5,7 @@ class Vehicle
     @make = make
     @model = model
     @year = year
+    @id = @@vehicles.length() + 1
   end
 
   define_method(:make) do
@@ -19,6 +20,9 @@ class Vehicle
     @year
   end
 
+  define_method(:id) do
+    @id
+  end
 
   define_method(:save) do
     @@vehicles.push(self)
@@ -32,9 +36,21 @@ class Vehicle
     @@vehicles = []
   end
 
+  define_singleton_method(:find) do |identification|
+    found_vehicle = nil
+    @@vehicles.each() do |vehicle|
+      found_vehicle = vehicle if vehicle.id() == identification.to_i()
+    end
+    found_vehicle
+  end
+
   define_method(:age) do
     current_year = Time.new().year()
     current_year - @year
   end
 
+  define_method(:worth_buying?) do
+    american_cars = ["Chrysler", "Ford", "GM"]
+    american_cars.include?(@make).&(self.age() <= 15)
+  end
 end
