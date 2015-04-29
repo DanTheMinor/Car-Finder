@@ -1,7 +1,11 @@
-<h1>Fill out the information on your vehicle</h1>
+<h1>Add a vehicle to <%= @dealership.name() %></h1>
 
-<form id="vehicles" action="/vehicles" method="post">
+<form action="/vehicles" method="post">
+  <!-- <input id='dealership_id' name='dealership_id' type='hidden' value='<%= @dealership.id() %>'> -->
+
   <div class="form-group">
+    <input id='dealership_id' name='dealership_id' type='hidden' value='<%= @dealership.id() %>'>
+
     <label id="make">What is the make?</label>
     <input id="make" placeholder="Enter your make (ford)" class="form-control" type="text" name="make">
   </div>
@@ -11,7 +15,7 @@
   </div>
   <div class="form-group">
     <label id="year">What is the year of the car?</label>
-    <input id="year" placeholder="Enter year of vehicle (2010)" class="form-control" type="number" name="year">
+    <input id="year" placeholder="Enter year of vehicle (2010)" class="form-control" type="text" name="year">
   </div>
   <button type="submit" id="add_vehicle" class='btn-primary'>Add it!</button>
 </form>
