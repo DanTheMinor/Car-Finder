@@ -16,5 +16,17 @@ class Dealership
 
   define_method(:cars) do
     @cars
-  end  
+  end
+
+  define_method(:save) do
+    @@dealerships.push(self)
+  end
+
+  define_singleton_method(:all) do
+    @@dealerships
+  end
+
+  define_singleton_method(:clear) do
+    @@dealerships = []
+  end
 end
