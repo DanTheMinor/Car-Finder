@@ -11,3 +11,7 @@ get('/vehicles') do
   @vehicles = Vehicle.all()
   erb(:vehicles)
 end
+
+get('/vehicles/new') do
+  erb(:vehicle_form)
+end
