@@ -48,7 +48,15 @@ describe(Vehicle) do
     it("clears the array of vehicles") do
       test_car = Vehicle.new("Toyota", "Prius", 2000)
       test_car.save()
-      Vehicle.clear()
+      expect(Vehicle.clear()).to(eq([]))
     end
   end
+
+  describe("#age") do
+    it("returns the vehicles age") do
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+      expect(test_vehicle.age()).to(eq(15))
+    end
+  end
+
 end
