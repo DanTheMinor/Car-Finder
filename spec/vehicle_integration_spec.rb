@@ -19,4 +19,10 @@ describe('The vehicle registration path', {:type => :feature}) do
     click_button('add_vehicle')
     expect(page).to have_content('Successly added escort')
   end
+
+  it('shows specific vehicle information after clicking vehicle name') do
+  visit('/vehicles')
+  click_link('escort')
+  expect(page).to have_content('Here are the stats of the selected car:')
+  end
 end
